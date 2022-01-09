@@ -37,7 +37,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jest": "^7.5.0"
+    "semver": "*"
   },
   "husky": {
     "hooks": {
