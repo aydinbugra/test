@@ -1,0 +1,62 @@
+{
+  "name": "test-js",
+  "version": "1.0.0",
+  "description": "Test app",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": ".//index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "clean": "rimraf lib es coverage",
+    "lint": "eslint src/**/*.{ts,tsx,js}",
+    "typecheck": "tsc",
+    "test": "jest --watch",
+    "test:ci": "jest",
+    "test:coverage": "jest --coverage",
+    "build": "yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc -p tsconfig.build.cjs.json",
+    "build:es": "tsc -p tsconfig.build.es.json",
+    "prepublishOnly": "yarn clean && yarn lint && yarn typecheck && yarn test:ci && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marnusw/cloudinary-tiny-js.git"
+  },
+  "keywords": [
+    "cloudinary"
+  ],
+  "authors": [
+    "Marnus Weststrate <marnusw@gmail.com> (https://github.com/marnusw)"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/aydinbugra/test/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "husky": "^4.3.0",
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint"
+    ],
+    "*.{ts,js,json}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
