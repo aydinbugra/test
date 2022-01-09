@@ -37,7 +37,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.5.0"
+    "jest": "^7.5.0"
   },
   "husky": {
     "hooks": {
